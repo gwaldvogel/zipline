@@ -174,7 +174,7 @@ export default function Login({
           {oauth_registration && (
             <>
               <Group grow>
-                {oauth_providers.map(({ url, name, Icon }, i) => (
+                {oauth_providers.map(({ url, name, displayName, Icon }, i) => (
                   <Button
                     key={i}
                     size='sm'
@@ -186,7 +186,7 @@ export default function Login({
                     component={Link}
                     href={url}
                   >
-                    {name}
+                    {displayName !== undefined ? displayName : name}
                   </Button>
                 ))}
               </Group>

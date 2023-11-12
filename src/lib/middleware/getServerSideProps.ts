@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next';
 
 export type OauthProvider = {
   name: string;
+  displayName?: string;
   url: string;
   link_url: string;
 };
@@ -72,7 +73,8 @@ export const getServerSideProps: GetServerSideProps<ServerSideProps> = async (ct
 
   if (oidcEnabled)
     oauth_providers.push({
-      name: config.oauth.oidc_provider_display_name,
+      name: 'OIDC',
+      displayName: config.oauth.oidc_provider_display_name,
       url: '/api/auth/oauth/oidc',
       link_url: '/api/auth/oauth/oidc?state=link',
     });
